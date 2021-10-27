@@ -80,9 +80,12 @@ Functions we will need:
 ----
 
 
-Describe: pigLatin()
+## Describe: wordIdentifier()
 
-## Identifier Function
+X 1. return word
+2. return first letter of word
+3. return second letter of word
+
 
 1. Test: "It will loop through the word and return each letter through each iteration."
 Code: pigLatin("sort")
@@ -100,11 +103,6 @@ Expected Output: "c"
 Code: pigLatin ("queen")
 Expected Output: "qu"
 
-## Vowel Function
-
-3. Test: "It will add 'way' to the end of words that begin with a vowel."
-Code: pigLatin("a");
-Expected Output: "away"
 
 ## Consonant Function
 
@@ -124,18 +122,6 @@ Expected Output: 2
 Code: pigLatin("tray")
 Expected Output: ["tr","ay"]
 
-2. Test: "It will switch the positions of the two parts of the word"
-Code: pigLatin("tray")
-Expected Output: ["ay", "tr"]
-
-2. Test: "It will push "ay" to the end of the array"
-Code: pigLatin("tray")
-Expected Output: ["ay", "tr", "ay"]
-
-2. Test: "It will join the array together and return it"
-Code: pigLatin ("tray")
-Expected Output: "aytray"
-
 ## QU Function
 
 4. Test: "It will return true if "q" is at index 0 && "qu" is contained in the string"
@@ -146,7 +132,7 @@ Expected Output: true
 Code: pigLatin("queen")
 Expected Output: ["qu","een"]
 
-4. Test: "It will switch the positions of the two parts of the word"
+<!-- 4. Test: "It will switch the positions of the two parts of the word"
 Code: pigLatin("queen")
 Expected Output: ["een", "qu"]
 
@@ -156,7 +142,7 @@ Expected Output: ["een", "qu", "ay"]
 
 4. Test: "It will join the array together and return it"
 Code: pigLatin ("queen")
-Expected Output: "eenquay"
+Expected Output: "eenquay" -->
 
 4. Test: "It will return false if "q" is not at index 0 && "qu" is contained in the string"
 Code: pigLatin ("squawk")
@@ -174,7 +160,7 @@ Expected Output: 2
 Code: pigLatin("squawk")
 Expected Output: ["s","quawk"]
 
-4. Test: "It will switch the positions of the two parts of the word"
+<!-- 4. Test: "It will switch the positions of the two parts of the word"
 Code: pigLatin("squawk")
 Expected Output: ["quawk", "s"]
 
@@ -184,7 +170,31 @@ Expected Output: ["quawk", "s", "ay"]
 
 4. Test: "It will join the array together and return it"
 Code: pigLatin("squawk")
-Expected Output: "quawksay"
+Expected Output: "quawksay" -->
+
+## Describe: pigLatin()
+
+2. Test: "It will switch the positions of the two parts of the word"
+Code: pigLatin("tray")
+Expected Output: ["ay", "tr"]
+
+<!-- if wordtype === v {
+  concat "way" to end.
+} concat "ay" to end -->
+
+2. Test: "It will add 'way' to the end of words that begin with a vowel."
+Code: pigLatin("a");
+Expected Output: "away"
+
+2. Test: "It will push "ay" to the end of the array"
+Code: pigLatin("tray")
+Expected Output: ["ay", "tr", "ay"]
+
+<!-- ------------- -->
+
+2. Test: "It will join the array together and return it"
+Code: pigLatin ("tray")
+Expected Output: "aytray"
 
 -Refactor code to separate utility logic from the rest of the business logic
 -Add UI and styling
