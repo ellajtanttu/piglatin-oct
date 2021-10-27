@@ -39,13 +39,133 @@ _https://opensource.org/licenses/MIT_
 _Ella Tanttu ellajtanttu@gmail.com_
 _Liz Thomas thomas.elizabeth.k@gmail.com_
 
-
-
-
 # TDD Cases
+
+<!--
+For words beginning with a vowel, add "way" to the end.
+-- one letter that is a vowel, add way to the end
+-- multiple letter word starting with vowel, add way to the end
+
+For Pig Latin, vowels are "a," "e," "i," "o," and "u."
+Don't treat "y" as a vowel.
+Examples: "away" becomes "awayway" and "okay" becomes "okayway." -->
+
+<!--
+For words beginning with one or more consonants, move all of the first consecutive consonants to the end and add "ay".
+-- function returns "cons" value if word begins with consonant
+-- function loops through word to find if the second letter is a vowel or a consonant - breaks out once it hits a vowel
+    -- function splits word when it finds the first vowel
+    -- switching the two parts
+    -- add "ay" to end
+Examples: "code" becomes "odecay" and "move" becomes "ovemay." -->
+
+<!-- If the first consonants include "qu", move the "q" and the "u."
+Don't forget about words like "squeal" where "qu" doesn't come first!
+-- function returns "surprise! QU" if word contains "qu"
+-- if qu is at index of 0 & 1 of word, return "dfjklas;jf"
+    -- function splits word: qu & rest of word
+    -- switching the two parts
+    -- add "ay" to end
+-- if qu is at index > 0 & 1, treat as a vowel
+    -- function splits word: first letter & rest of word
+    -- switching the two parts
+    -- add "ay" to end
+Examples: "quick" becomes "ickquay" while "squeal" becomes "quealsay." -->
+
 
 Describe: pigLatin()
 
 Test: "It will add 'way' to the end of words that begin with a vowel."
 Code: pigLatin("a");
 Expected Output: "away"
+
+Test: "It will return true if the word begins with a consonant."
+Code: pigLatin("sort")
+Expected Output: true
+
+Test: "It will loop through the word and return each letter through each iteration."
+Code: pigLatin("sort")
+Expected Output: "s" "o" "r" "t"
+
+Test: "It will loop through the word to find if the second letter is a vowel"
+Code: pigLatin("tray")
+Expected Output: false
+
+Test: "It will loop through the word to find if the second letter is a consonant."
+Code: pigLatin("tray")
+Expected Output: true
+
+Test: "It will loop through the word until it hits a vowel and then returns the index of the first vowel"
+Code: pigLatin("tray")
+Expected Output: 2
+
+Test: "It will split the word at the index of the first vowel"
+Code: pigLatin("tray")
+Expected Output: ["tr","ay"]
+
+Test: "It will switch the positions of the two parts of the word"
+Code: pigLatin("tray")
+Expected Output: ["ay", "tr"]
+
+Test: "It will push "ay" to the end of the array"
+Code: pigLatin("tray")
+Expected Output: ["ay", "tr", "ay"]
+
+Test: "It will join the array together and return it"
+Code: pigLatin ("tray")
+Expected Output: "aytray"
+
+Test: "It will return true if word contains 'qu'"
+Code: pigLatin ("queen")
+Expected Output: true
+
+Test: "It will return true if "q" is at index 0 && "qu" is contained in the string"
+Code: pigLatin ("queen")
+Expected Output: true
+
+Test: "It will split the word at the index after the 'u'"
+Code: pigLatin("queen")
+Expected Output: ["qu","een"]
+
+Test: "It will switch the positions of the two parts of the word"
+Code: pigLatin("queen")
+Expected Output: ["een", "qu"]
+
+Test: "It will push "ay" to the end of the array"
+Code: pigLatin("queen")
+Expected Output: ["een", "qu", "ay"]
+
+Test: "It will join the array together and return it"
+Code: pigLatin ("queen")
+Expected Output: "eenquay"
+
+Test: "It will return false if "q" is not at index 0 && "qu" is contained in the string"
+Code: pigLatin ("squawk")
+Expected Output: false
+
+Test: "It will loop through the word to find if the second letter is a q."
+Code: pigLatin("squawk")
+Expected Output: true
+
+Test: "It will loop through the word until it hits a q and then returns the index"
+Code: pigLatin("squawk")
+Expected Output: 2
+
+Test: "It will split the word at the index of the q"
+Code: pigLatin("squawk")
+Expected Output: ["s","quawk"]
+
+Test: "It will switch the positions of the two parts of the word"
+Code: pigLatin("squawk")
+Expected Output: ["quawk", "s"]
+
+Test: "It will push "ay" to the end of the array"
+Code: pigLatin("squawk")
+Expected Output: ["quawk", "s", "ay"]
+
+Test: "It will join the array together and return it"
+Code: pigLatin("squawk")
+Expected Output: "quawksay"
+
+-Refactor code to separate utility logic from the rest of the business logic
+-Add UI and styling
